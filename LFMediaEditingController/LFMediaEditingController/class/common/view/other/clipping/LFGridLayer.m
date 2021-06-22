@@ -96,25 +96,41 @@ NSString *const lfgridLayerAnimtionKey = @"lf_gridLayer_contentsRectAnimate";
     {
         [path addArcWithCenter:CGPointMake(CGRectGetMidX(rct), CGRectGetMidY(rct)) radius:rct.size.width/2 startAngle:0 endAngle:2*M_PI clockwise:YES];
     } else {
-        
+        // modifiy for hb
         CGFloat dW = 0;
-        for(int i=0;i<4;++i){ /** 竖线 */
+        NSInteger count = 2;
+        for(int i=0;i<count;++i){ // 竖线
+            [path moveToPoint:CGPointMake(rct.origin.x+dW, rct.origin.y)];
+            [path addLineToPoint:CGPointMake(rct.origin.x+dW, rct.origin.y+rct.size.height)];
+            dW += _gridRect.size.width / (count - 1);
+        }
+        
+        dW = 0;
+        for(int i=0;i<count;++i){ // 横线
+            [path moveToPoint:CGPointMake(rct.origin.x, rct.origin.y+dW)];
+            [path addLineToPoint:CGPointMake(rct.origin.x+rct.size.width, rct.origin.y+dW)];
+            dW += rct.size.height / (count - 1);
+        }
+        
+        /*
+        CGFloat dW = 0;
+        for(int i=0;i<4;++i){ // 竖线
             [path moveToPoint:CGPointMake(rct.origin.x+dW, rct.origin.y)];
             [path addLineToPoint:CGPointMake(rct.origin.x+dW, rct.origin.y+rct.size.height)];
             dW += _gridRect.size.width/3;
         }
         
         dW = 0;
-        for(int i=0;i<4;++i){ /** 横线 */
+        for(int i=0;i<4;++i){ // 横线
             [path moveToPoint:CGPointMake(rct.origin.x, rct.origin.y+dW)];
             [path addLineToPoint:CGPointMake(rct.origin.x+rct.size.width, rct.origin.y+dW)];
             dW += rct.size.height/3;
         }
-        
+        */
         /** 偏移量 */
-        CGFloat offset = 1;
+        CGFloat offset = 1.2;
         /** 长度 */
-        CGFloat cornerlength = 15.f;
+        CGFloat cornerlength = 9.f;
         
         CGRect newRct = CGRectInset(rct, -offset, -offset);
         

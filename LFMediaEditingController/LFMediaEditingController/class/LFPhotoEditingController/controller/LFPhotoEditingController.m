@@ -24,6 +24,7 @@
 #import "FilterSuiteUtils.h"
 
 #import "NSObject+LFTipsGuideView.h"
+#import "HBEditToolView.h"
 
 /************************ Attributes ************************/
 /** 绘画颜色 NSNumber containing LFPhotoEditOperationSubType, default 0 */
@@ -145,8 +146,9 @@ LFPhotoEditOperationStringKey const LFPhotoEditCropExtraAspectRatioAttributeName
         }
     }
     [self configScrollView];
-    [self configCustomNaviBar];
+    //[self configCustomNaviBar];
     [self configBottomToolBar];
+    //[self configHBToolBar];
     [self configDefaultOperation];
 }
 
@@ -193,17 +195,8 @@ LFPhotoEditOperationStringKey const LFPhotoEditCropExtraAspectRatioAttributeName
 #pragma mark - 创建视图
 - (void)configScrollView
 {
-    CGRect editRect = self.view.bounds;
-    
-//    if (@available(iOS 11.0, *)) {
-//        if (hasSafeArea) {
-//            editRect.origin.x += self.navigationController.view.safeAreaInsets.left;
-//            editRect.origin.y += self.navigationController.view.safeAreaInsets.top;
-//            editRect.size.width -= (self.navigationController.view.safeAreaInsets.left+self.navigationController.view.safeAreaInsets.right);
-//            editRect.size.height -= (self.navigationController.view.safeAreaInsets.top+self.navigationController.view.safeAreaInsets.bottom);
-//        }
-//    }
-    
+    CGFloat top = self.view.safeAreaInsets.top + 20;
+    CGRect editRect = CGRectMake(24, top, self.view.bounds.size.width - 24 * 2, self.view.bounds.size.height - 200);//self.view.bounds;
     _EditingView = [[LFEditingView alloc] initWithFrame:editRect];
     _EditingView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _EditingView.editDelegate = self;
@@ -329,8 +322,18 @@ LFPhotoEditOperationStringKey const LFPhotoEditCropExtraAspectRatioAttributeName
     [self.view addSubview:_edit_naviBar];
 }
 
-- (void)configBottomToolBar
-{
+- (void)configHBToolBar {
+    HBEditToolView *tool = [HBEditToolView initFromNib];
+    tool.frame = CGRectMake(0,  [UIScreen mainScreen].bounds.size.height - 170, [UIScreen mainScreen].bounds.size.width, 170);
+    tool.backgroundColor = [UIColor redColor];
+    __weak typeof(self) weakSelf = self;
+    tool.tapCancelBlock = ^{
+        [weakSelf cancelButtonClick];
+    };
+    [self.view addSubview:tool];
+}
+
+- (void)configBottomToolBar {
     LFEditToolbarType toolbarType = 0;
     if (self.operationType&LFPhotoEditOperationType_draw) {
         toolbarType |= LFEditToolbarType_draw;

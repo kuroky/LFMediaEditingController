@@ -354,11 +354,11 @@ NSString *const kLFEditingViewData_clippingView = @"kLFEditingViewData_clippingV
     if (clipping) {
         [UIView animateWithDuration:(animated ? 0.125f : 0) animations:^{
             [self setZoomScale:self.minimumZoomScale];
-            /** 关闭缩放 */
+            // 关闭缩放
             self.maximumZoomScale = self.minimumZoomScale;
-            /** 重置contentSize */
+            // 重置contentSize
             [self resetContentSize];
-            /** 滚到顶部 */
+            // 滚到顶部
             [self setContentOffset:CGPointMake(-self.contentInset.left + self.extraSafeAreaInsets.left, -self.contentInset.top + self.extraSafeAreaInsets.top)];
         }];
     } else {

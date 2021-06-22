@@ -65,6 +65,8 @@
 		3BC5BD572403659D00675877 /* NSObject+LFTipsGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5BD512403659D00675877 /* NSObject+LFTipsGuideView.m */; };
 		3BC5BD582403659D00675877 /* LFTipsGuideView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3BC5BD542403659D00675877 /* LFTipsGuideView.bundle */; };
 		3BD57106254AC3500079ABDA /* LFMovingRemoveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD57105254AC3500079ABDA /* LFMovingRemoveView.m */; };
+		5BABC84D2682076E000E5444 /* HBEditToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BABC84C2682076E000E5444 /* HBEditToolView.m */; };
+		5BABC84F268207A6000E5444 /* HBEditToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BABC84E268207A5000E5444 /* HBEditToolView.xib */; };
 		6F14E5D51EE6438A0049AE56 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F14E5D41EE6438A0049AE56 /* main.m */; };
 		6F14E5D81EE6438A0049AE56 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F14E5D71EE6438A0049AE56 /* AppDelegate.m */; };
 		6F14E5DB1EE6438A0049AE56 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F14E5DA1EE6438A0049AE56 /* ViewController.m */; };
@@ -254,6 +256,9 @@
 		3BD57104254AC3500079ABDA /* LFMovingRemoveView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFMovingRemoveView.h; sourceTree = "<group>"; };
 		3BD57105254AC3500079ABDA /* LFMovingRemoveView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFMovingRemoveView.m; sourceTree = "<group>"; };
 		59CF21AA4ECAE5D75012FAF4 /* Pods_LFMediaEditingController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LFMediaEditingController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BABC84B2682076E000E5444 /* HBEditToolView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBEditToolView.h; sourceTree = "<group>"; };
+		5BABC84C2682076E000E5444 /* HBEditToolView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBEditToolView.m; sourceTree = "<group>"; };
+		5BABC84E268207A5000E5444 /* HBEditToolView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HBEditToolView.xib; sourceTree = "<group>"; };
 		6F14E5D01EE6438A0049AE56 /* LFMediaEditingController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LFMediaEditingController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F14E5D41EE6438A0049AE56 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6F14E5D61EE6438A0049AE56 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -662,15 +667,15 @@
 		3BC5BD2A24035BEC00675877 /* clipping */ = {
 			isa = PBXGroup;
 			children = (
+				3BC5BD2E24035BEC00675877 /* LFGridLayer.h */,
+				3BC5BD3324035BED00675877 /* LFGridLayer.m */,
+				3BC5BD2F24035BED00675877 /* LFGridMaskLayer.h */,
 				3BC5BD2B24035BEC00675877 /* LFGridMaskLayer.m */,
 				3BC5BD2C24035BEC00675877 /* LFGridView.h */,
-				3BC5BD2D24035BEC00675877 /* LFResizeControl.m */,
-				3BC5BD2E24035BEC00675877 /* LFGridLayer.h */,
-				3BC5BD2F24035BED00675877 /* LFGridMaskLayer.h */,
-				3BC5BD3024035BED00675877 /* LFResizeControl.h */,
 				3BC5BD3124035BED00675877 /* LFGridView.m */,
 				3BC5BD3224035BED00675877 /* LFGridView+private.h */,
-				3BC5BD3324035BED00675877 /* LFGridLayer.m */,
+				3BC5BD3024035BED00675877 /* LFResizeControl.h */,
+				3BC5BD2D24035BEC00675877 /* LFResizeControl.m */,
 			);
 			path = clipping;
 			sourceTree = "<group>";
@@ -835,6 +840,9 @@
 		6F14E6051EE6439E0049AE56 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				5BABC84B2682076E000E5444 /* HBEditToolView.h */,
+				5BABC84C2682076E000E5444 /* HBEditToolView.m */,
+				5BABC84E268207A5000E5444 /* HBEditToolView.xib */,
 				6F14E6081EE6439E0049AE56 /* LFEditingView.h */,
 				6F14E6091EE6439E0049AE56 /* LFEditingView.m */,
 				6F14E6061EE6439E0049AE56 /* LFClippingView.h */,
@@ -1316,6 +1324,7 @@
 			files = (
 				6F61BC1F1F29B880005A1E63 /* 3.m4v in Resources */,
 				6F384D471EEA54550077D207 /* 2.png in Resources */,
+				5BABC84F268207A6000E5444 /* HBEditToolView.xib in Resources */,
 				C70FDAB120E46CF50053A02C /* longImage.jpg in Resources */,
 				C7CFB2F823166F860085836F /* LFMediaEditingController.bundle in Resources */,
 				3B8B0C5223E7B66A00148D0B /* Voice.mp3 in Resources */,
@@ -1475,6 +1484,7 @@
 				C7D76C1922F163C300D632D3 /* LFMediaEditingHeader.m in Sources */,
 				3B32D1CE242B23AD005D0258 /* LFSmearBrush.m in Sources */,
 				C7D28F4A22DC0ECB00AB83FE /* LFMEGifView.m in Sources */,
+				5BABC84D2682076E000E5444 /* HBEditToolView.m in Sources */,
 				3B86CD76241A1F6A00D6FA06 /* JRCollectionViewCell.m in Sources */,
 				3B8B0C6423E7C78500148D0B /* LFEditToolbar.m in Sources */,
 				3B86CD7F241A1F6A00D6FA06 /* JRDataImageView.m in Sources */,
